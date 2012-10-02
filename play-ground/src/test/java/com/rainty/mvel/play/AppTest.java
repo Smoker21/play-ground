@@ -1,4 +1,4 @@
-package com.rainsoft.play;
+package com.rainty.mvel.play;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

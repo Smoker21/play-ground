@@ -8,7 +8,7 @@ import org.mvel2.MVEL;
 import org.mvel2.compiler.ExecutableStatement;
 
 /**
- * Hello world!
+ * This is a simple MVEL test class. 
  * 
  */
 public class App {
