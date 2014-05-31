@@ -1,4 +1,4 @@
-package com.rainsoft.play;
+package com.rainsoft.mvel.play;
 
 import java.util.Map;
 

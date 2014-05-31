@@ -1,4 +1,4 @@
-package com.rainsoft.play;
+package com.rainsoft.mvel.play;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -27,9 +27,13 @@ public class App {
 		}
 		ExecutableStatement stmt = (ExecutableStatement) o;
 		HashMap a = new HashMap();
-		String script = "var colors = {'red', 'green', 'blue'}; "
-				+ "var a = 'Who cares'; " + " foreach (c : colors) { "
-				+ "     System.out.println(c + '!'); " + "}";
+		String script = 
+				"var colors = {'red', 'green', 'blue'}; " + 
+		        "var a = 'Who cares'; " + 
+				"foreach (c : colors) { " + 
+		        "     System.out.println(c + '!'); " + 
+				"}";
+		
 		// In this case variable colors and a will store in hashMap a
 
 		System.out.println(MVEL.eval(script, a));
