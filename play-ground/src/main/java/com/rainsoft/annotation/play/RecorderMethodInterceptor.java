@@ -1,29 +1,34 @@
 package com.rainsoft.annotation.play;
 
 import java.lang.reflect.Method;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 public class RecorderMethodInterceptor implements MethodInterceptor {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(RecorderMethodInterceptor.class);
+
 	public Object intercept(Object o, Method m, Object[] args, MethodProxy proxy) throws Throwable {
 		// TODO Auto-generated method stub
 		if (m.isAnnotationPresent(Recorder.class)) {
-			System.out.println("{Class: " + o.getClass().getCanonicalName() + ", Object:" + o + "}");
-			System.out.println("Args list");
-			for (Object arg : args) {				
-				System.out.println(arg);
+			LOGGER.info("{Class:{}, Object:{}}",o.getClass().getCanonicalName(),o);
+			LOGGER.info("{Class: " + o.getClass().getCanonicalName() + ", Object:" + o + "}");			
+			LOGGER.info("Args list");
+			for (Object arg : args) {
+				LOGGER.info(""+arg);
 			}
 		}
 		Object ret = null;
 		try {
 			ret = proxy.invokeSuper(o, args);
 		} catch (Throwable t) {
-			t.printStackTrace(); 		
+			t.printStackTrace();
 		}
-		System.out.println(ret);
+		LOGGER.info(""+ret);
 		return ret;
 	}
 
